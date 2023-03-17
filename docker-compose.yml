@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  # MONGODB services
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - mongo_db:/data/db
+  # Node API service
+  api: 
+    build: .  
+    ports:
+      - 4000:3000
+    volumes:
+      - .:/usr/src/atoa
+    environment:
+      PORT: 3000
+      MONGODB_URL: mongodb://mongo_db:27017/atoa
+      ACCESS_TOKEN_SECRET: d3af49c0036a0d9c977c48e0b411a267111fcd7d79dbd2158fa1b0db0ca7278a
+      REFRESH_TOKEN_SECRET: 0b043b84d7b799d6ed50c23325d4cc004c1437f978de62791a9fb5fb32d7dfbb
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

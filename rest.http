@@ -1,0 +1,42 @@
+### SignUp User
+POST http://localhost:3000/user/signUp
+Content-Type: application/json
+
+{
+    "name": "John Smith",
+    "email": "john123@gmail.com",
+    "mobile": "+912345678956",
+    "password": "123456789"
+}
+
+### Login User
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "mobile": "+912345678956",
+    "password": "123456789"
+}
+
+### Create Transaction list
+POST http://localhost:3000/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDEzZTdhNTdkNzczYmU3MDQwNjMyZWEiLCJpYXQiOjE2NzkwMjc2MjcsImV4cCI6MTY3OTAyODUyN30.mTG9fcGoVuZQT_S0cWzLfz26iSFZFQHqzXcdov7mGZQ
+
+{
+    "name": "Transaction 3",
+    "imageUrl": "transaction image url",
+    "type": "credit",
+    "amount": 656,
+    "currencySymbol": "€"
+}
+
+### Get Transaction list
+GET http://localhost:3000/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDEzZTdhNTdkNzczYmU3MDQwNjMyZWEiLCJpYXQiOjE2NzkwMjg4OTEsImV4cCI6MTY3OTAyOTc5MX0.P6EjRQSVJupoVRT0AimAPk7ELoMKBC71pHP2RITuoK8
+
+### Get Transaction 
+GET http://localhost:3000/transactions/6413e7c77d773be7040632ef
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDEzZTdhNTdkNzczYmU3MDQwNjMyZWEiLCJpYXQiOjE2NzkwMjg4OTEsImV4cCI6MTY3OTAyOTc5MX0.P6EjRQSVJupoVRT0AimAPk7ELoMKBC71pHP2RITuoK8
